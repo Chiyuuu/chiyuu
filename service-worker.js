@@ -1,8 +1,21 @@
-const CACHE_NAME = 'mindful-morsel-cache-v1';
+const CACHE_NAME = 'mindful-morsel-cache-v2';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/metadata.json',
+  
+  // Add all app source files for offline functionality
+  '/index.tsx',
+  '/App.tsx',
+  '/types.ts',
+  '/constants.tsx',
+  '/services/analysis.ts',
+  '/components/EmotionalLog.tsx',
+  '/components/FirstAidKit.tsx',
+  '/components/Insights.tsx',
+  '/components/Journal.tsx',
+  
+  // PWA assets
   '/pwa-assets/icon-192x192.png',
   '/pwa-assets/icon-512x512.png'
 ];

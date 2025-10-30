@@ -63,9 +63,15 @@
   }
 }
 </script>
+<!-- 1. 添加Babel Standalone，用于在浏览器中进行实时编译 -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
   <body class="bg-brand-background">
     <div id="root"></div>
+
+    <!-- 2. 添加应用的入口文件，并指定类型为 "text/babel" -->
+    <script type="text/babel" data-type="module" src="/index.tsx"></script>
+
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
