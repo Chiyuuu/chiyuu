@@ -2,9 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import EmotionalLog from './components/EmotionalLog';
 import Insights from './components/Insights';
 import FirstAidKit from './components/FirstAidKit';
+import Journal from './components/Journal';
 import type { LogEntry } from './types';
 
-type View = 'log' | 'insights';
+type View = 'log' | 'insights' | 'journal';
 
 const App: React.FC = () => {
     const [view, setView] = useState<View>('log');
@@ -65,7 +66,6 @@ const App: React.FC = () => {
         setPendingCheckIn(null);
     }, []);
 
-    // FIX: Refactored NavItem to use React.FC for better type inference, resolving issues with the 'children' prop.
     const NavItem: React.FC<{ activeView: View; targetView: View; children: React.ReactNode; }> = ({ activeView, targetView, children }) => (
         <button
             onClick={() => setView(targetView)}
@@ -77,7 +77,7 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen flex flex-col font-sans text-brand-text">
-            <main className="flex-grow flex flex-col justify-center items-center">
+            <main className="flex-grow flex flex-col justify-center items-center w-full">
                 {view === 'log' && (
                     <EmotionalLog
                         addLog={addLog}
@@ -88,12 +88,17 @@ const App: React.FC = () => {
                     />
                 )}
                 {view === 'insights' && <Insights logs={logs} />}
+                {view === 'journal' && <Journal logs={logs} />}
             </main>
 
             <nav className="sticky bottom-0 left-0 right-0 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.05)] flex h-16">
                 <NavItem activeView={view} targetView='log'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                     <span className="text-xs font-medium">记录</span>
+                </NavItem>
+                <NavItem activeView={view} targetView='journal'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                    <span className="text-xs font-medium">日记</span>
                 </NavItem>
                 <NavItem activeView={view} targetView='insights'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>

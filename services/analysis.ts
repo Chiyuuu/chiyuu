@@ -46,13 +46,13 @@ export function getHighRiskTime(logs: LogEntry[]): { day: string; time: string }
 
 export function generateSuggestion(trigger: string | null, riskTime: { day: string; time: string } | null): string {
     if (!trigger && !riskTime) {
-        return "请继续记录您的时刻以发现您的模式。您做得很好！";
+        return "请继续记录，探索您的专属模式。您做得很棒！";
     }
     if (riskTime) {
-        return `您的数据显示，${riskTime.day}${riskTime.time}可能是一个充满挑战的时刻。下周，当那个时候到来时，也许可以先尝试一次“暂停”呼吸练习。这可能会带来不同。`;
+        return `数据显示，${riskTime.day}${riskTime.time}对您来说可能是一个挑战。下周当这个时刻来临时，不妨先试试‘暂停’呼吸练习，看看会不会有新的发现。`;
     }
     if (trigger) {
-        return `看起来“${trigger}”是一种常见的情绪触发器。当您注意到这种感觉时，请尝试使用“感官转移”工具之一，与当下重新建立联系。`;
+        return `看起来‘${trigger}’是您常见的情绪诱因。当这种感觉出现时，试试用‘感官转移’工具，让自己和当下重新连接吧。`;
     }
-    return "每一次记录都有助于您更好地了解自己。请继续加油！";
+    return "每一次记录，都是一次更深的自我探索。继续加油！";
 }

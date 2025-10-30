@@ -29,8 +29,8 @@ const PostMealCheckIn: React.FC<{
     return (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 animate-fadeIn">
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-6 text-center animate-slideInUp">
-                <h2 className="text-xl font-bold text-brand-text mb-2">餐后感受记录</h2>
-                <p className="text-brand-text-light mb-6">您上一餐后感觉如何？</p>
+                <h2 className="text-xl font-bold text-brand-text mb-2">记录餐后感受</h2>
+                <p className="text-brand-text-light mb-6">刚才吃完东西，感觉怎么样？</p>
                 <div className="flex justify-center space-x-4">
                     {POST_MEAL_FEELINGS.map(({name, icon}) => (
                          <button
@@ -109,8 +109,8 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
             return (
                 <div className="text-center animate-fadeIn">
                     <button onClick={() => setIsCustomMood(false)} className="text-brand-primary mb-6">&larr; 返回选择情绪</button>
-                    <h2 className="text-2xl font-bold text-brand-text mb-2">您具体的感觉是什么？</h2>
-                    <p className="text-brand-text-light mb-8">请用一两个词来描述。</p>
+                    <h2 className="text-2xl font-bold text-brand-text mb-2">可以具体说说您的感受吗？</h2>
+                    <p className="text-brand-text-light mb-8">请用一两个词来描述它。</p>
                     <form onSubmit={handleCustomMoodSubmit} className="bg-white p-6 rounded-xl shadow-md">
                         <input
                             type="text"
@@ -128,8 +128,8 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
         }
         return (
           <div className="text-center animate-fadeIn">
-            <h2 className="text-2xl font-bold text-brand-text mb-2">现在感觉如何？</h2>
-            <p className="text-brand-text-light mb-8">请选择一个情绪开始。</p>
+            <h2 className="text-2xl font-bold text-brand-text mb-2">您现在感觉如何？</h2>
+            <p className="text-brand-text-light mb-8">请选择一种情绪，开始记录吧。</p>
             <div className="grid grid-cols-3 gap-4">
               {MOODS.map((mood) => (
                 <button
@@ -148,10 +148,10 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
         return (
           <div className="text-center animate-fadeIn">
             <button onClick={() => { setIsCustomMood(false); setStep(1); }} className="text-brand-primary mb-6">&larr; 返回选择情绪</button>
-            <h2 className="text-2xl font-bold text-brand-text mb-2">检查一下您的生理饥饿感。</h2>
+            <h2 className="text-2xl font-bold text-brand-text mb-2">感觉一下，您的身体饿了吗？</h2>
             <p className="text-brand-text-light mb-8">是肚子饿了，还是心饿了？</p>
             <div className="bg-white p-6 rounded-xl shadow-md">
-                <label htmlFor="hunger" className="block text-lg font-medium text-brand-text">饥饿程度: <span className="font-bold text-brand-primary">{hungerLevel}</span></label>
+                <label htmlFor="hunger" className="block text-lg font-medium text-brand-text">身体饥饿感: <span className="font-bold text-brand-primary">{hungerLevel}</span></label>
                 <input
                     id="hunger"
                     type="range"
@@ -162,9 +162,9 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-4"
                 />
                 <div className="flex justify-between text-xs text-brand-text-light mt-2 px-1">
-                    <span>饱腹</span>
-                    <span>中等</span>
-                    <span>饥饿</span>
+                    <span>很饱</span>
+                    <span>适中</span>
+                    <span>很饿</span>
                 </div>
             </div>
             <button onClick={handleHungerSubmit} className="mt-8 bg-brand-primary text-white font-bold py-3 px-6 rounded-full w-full max-w-xs hover:bg-blue-600 transition-colors">下一步</button>
@@ -174,8 +174,8 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
         return (
              <div className="text-center animate-fadeIn">
                 <button onClick={() => setStep(2)} className="text-brand-primary mb-6">&larr; 返回修改饥饿感</button>
-                <h2 className="text-2xl font-bold text-brand-text mb-2">您吃了或渴望吃什么？</h2>
-                <p className="text-brand-text-light mb-8">(诚实地记录就好)</p>
+                <h2 className="text-2xl font-bold text-brand-text mb-2">您吃了什么，或者想吃什么？</h2>
+                <p className="text-brand-text-light mb-8">（诚实记录就好）</p>
                 <form onSubmit={handleFoodSubmit} className="bg-white p-6 rounded-xl shadow-md">
                     <input
                         type="text"
@@ -199,7 +199,7 @@ const EmotionalLog: React.FC<EmotionalLogProps> = ({ addLog, requestFirstAid, pe
       {step === 1 && !isCustomMood ? (
         <header className="text-center mb-8">
             <h1 className="text-4xl font-bold text-brand-text">觅食记</h1>
-            <p className="text-brand-text-light text-lg mt-2">觉察. 理解. 疗愈.</p>
+            <p className="text-brand-text-light text-lg mt-2">觉察 · 理解 · 疗愈</p>
         </header>
       ) : null}
       <main>

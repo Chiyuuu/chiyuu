@@ -1,0 +1,22 @@
+{
+  "short_name": "觅食记",
+  "name": "觅食记",
+  "description": "一个心理支持工具，通过“觉察-干预-理解”的循环，帮助用户管理情绪性进食。",
+  "icons": [
+    {
+      "src": "/pwa-assets/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/pwa-assets/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F7F9FB",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#4A90E2"
+}

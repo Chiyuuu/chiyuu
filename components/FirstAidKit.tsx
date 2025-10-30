@@ -34,7 +34,7 @@ const BreathingAnimator = () => {
                 <div className="absolute w-full h-full bg-brand-secondary rounded-full animate-breathe animation-delay-4000"></div>
                 <span className="relative text-white font-semibold text-lg z-10">{text}</span>
             </div>
-            <p className="mt-6 text-brand-text-light">专注呼吸60秒。让情绪如浮云飘过。</p>
+            <p className="mt-6 text-brand-text-light">专注呼吸60秒，让情绪像云一样飘走。</p>
         </div>
     );
 };
@@ -43,8 +43,8 @@ const BreathingAnimator = () => {
 const SensoryShift = () => {
     const prompts = [
         { type: "听", instruction: "闭上眼睛，仔细听周围3种不同的声音。", icon: "👂" },
-        { type: "看", instruction: "环顾四周，在您所处的环境中找出5种不同的颜色。", icon: "👁️" },
-        { type: "感受", instruction: "感受您的双脚与地面的接触，以及背部靠着椅子的感觉。让自己扎根于此。", icon: "✋" }
+        { type: "看", instruction: "环顾四周，在您所处的空间里找出5种不同的颜色。", icon: "👁️" },
+        { type: "感受", instruction: "感受双脚与地面的接触，体会后背倚靠椅子的感觉。让自己安住于此。", icon: "✋" }
     ];
     const [currentPrompt, setCurrentPrompt] = useState(0);
 
@@ -70,7 +70,7 @@ const EmotionVent = () => {
     return (
         <div className="p-4 flex flex-col items-center">
              <h3 className="text-xl font-bold text-brand-primary mb-2 text-center">一个私密空间</h3>
-            <p className="text-brand-text-light text-center mb-4">写下您的烦恼，然后释放它。这里的内容不会被保存。</p>
+            <p className="text-brand-text-light text-center mb-4">写下烦恼，然后释放它们。这里的内容不会被保存。</p>
             <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
@@ -82,7 +82,7 @@ const EmotionVent = () => {
                 className="mt-4 bg-brand-accent text-white font-bold py-2 px-4 rounded-full hover:bg-orange-500 transition-colors disabled:bg-gray-300"
                 disabled={!text}
             >
-                释放它
+                释放
             </button>
         </div>
     );
